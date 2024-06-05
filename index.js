@@ -9,6 +9,7 @@ const request = require('request');
 const crypto = require('crypto');
 
 const credentials = require('./package.json');
+const { name } = require('ejs');
 
 admin.initializeApp({
   credential: admin.credential.cert(credentials),
@@ -46,7 +47,7 @@ app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const userSnapshot = await db.collection('users').where('email', '==', email).get();
+    const userSnapshot = await db.collection('user').where('email', '==', email).get();
     if (userSnapshot.empty) {
       return res.status(400).send('User not found');
     }
@@ -57,7 +58,7 @@ app.post('/login', async (req, res) => {
       return res.status(400).send('Invalid password');
     }
 
-    req.session.user = { email: user.email };
+    req.session.user = { email: user.email, name: user.name };
     res.redirect('/main');
   } catch (error) {
     console.error('Error occurred', error);
@@ -73,6 +74,11 @@ app.post('/signup', async (req, res) => {
   const { name, email, password } = req.body; // Ensure 'name' is correctly extracted
 
   try {
+    const userSnapshot = await db.collection('user').where('email', '==', email).get();
+      if (!userSnapshot.empty) {
+          return res.status(400).send('Email already in use');
+      }
+
     const hashPassword = await bcrypt.hash(password, 10);
     await db.collection('user').add({
       name: name, // Make sure 'name' is used correctly
@@ -86,6 +92,7 @@ app.post('/signup', async (req, res) => {
     res.status(500).send('Error signing up');
   }
 });
+
 
 app.post('/logout', (req, res) => {
   req.session.destroy((err) => {
@@ -109,8 +116,12 @@ app.get('/movie', (req, res) => {
 });
 
 app.get('/main', (req, res) => {
-  res.render('main');
+  if (!req.session.user) {
+    return res.redirect('/login');
+  }
+  res.render('main', { user: req.session.user });
 });
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
