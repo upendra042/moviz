@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Dashboard - Skill Sharing Platform</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url(girls.jpg);
+            background-size: cover;
+        }
+
+        .container { 
+            max-width: 1700px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: rgba(177, 167, 167, 0.5);;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+        .logout {
+            background-color: #007bff;
+        }
+        .nav {
+            background-color: rgb(176, 180, 173);
+        }
+        .home {
+            background-color: #28a745;
+        }
+
+        .nav-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-container a {
+            color: #908888;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-container a:hover {
+            background-color: #1976D2;
+            color: #fff;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #1976D2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #1976D2;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #155a8a;
+        }
+
+        .section-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(103, 87, 87, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .feature-box {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #7e7b8e;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-container">
+            <a href="/main" class="home">Home</a>
+            <a href="/user-portal" class="nav">User Portal</a>
+            <a href="/tutor-dashboard" class="nav">Tutor Dashboard</a>
+            <a href="/admin-panel" class="nav">Admin Panel</a>
+            <a href="/landing-page" class="nav">Landing Page</a>
+            <a href="/blog" class="nav">Blog</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+        
+        <div class="container">
+            <h1>Tutor Dashboard</h1>
+            
+            <!-- Features Section -->
+            <div class="section-container">
+                <h2>Our Features</h2>
+                <div class="feature-box">
+                    <h3>Interactive Chatbot</h3>
+                    <p>Get instant answers to your questions with our AI-powered chatbot.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>YouTube Video Generator</h3>
+                    <p>Create high-quality YouTube videos with our AI-powered video generator.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Code Generator</h3>
+                    <p>Generate code snippets and accelerate your development process with our code generator.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Language Converter</h3>
+                    <p>Break language barriers with our instant translation tool.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Live Chat</h3>
+                    <p>Get real-time support and feedback from our team of experts.</p>
+                </div>
+            </div>
+    
+            <a href="/logout" class="logout-link">Logout</a>
+        </div>
+</body>
+</html>

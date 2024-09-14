@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Skill Sharing Platform</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url(man.jpg);
+            background-size: cover;
+        }
+
+        .container { 
+            max-width: 1700px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: rgba(189, 183, 183, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+        .logout {
+            background-color: #007bff;
+        }
+        .nav {
+            background-color: rgb(176, 180, 173);
+        }
+        .home {
+            background-color: #28a745;
+        }
+
+        .nav-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-container a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-container a:hover {
+            background-color: #1976D2;
+            color: #fff;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #1976D2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #1976D2;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #155a8a;
+        }
+
+        /* Blog Section */
+        .blog-post {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: rgba(184, 181, 208, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post h3 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .blog-post p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .blog-post .tags {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .tags span {
+            background-color: #1976D2;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 30px;
+        }
+
+        .comments-section h4 {
+            font-size: 18px;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #9d9c9c;
+            border-radius: 8px;
+        }
+
+        .comment p {
+            margin: 5px 0;
+        }
+
+        .comment-author {
+            font-weight: bold;
+        }
+
+        .comment-input {
+            margin-top: 20px;
+        }
+
+        .comment-input textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .comment-input button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #1976D2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comment-input button:hover {
+            background-color: #155a8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-container">
+            <a href="/main" class="home">Home</a>
+            <a href="/user-portal" class="nav">User Portal</a>
+            <a href="/tutor-dashboard" class="nav">Tutor Dashboard</a>
+            <a href="/admin-panel" class="nav">Admin Panel</a>
+            <a href="/landing-page" class="nav">Landing Page</a>
+            <a href="/blog" class="nav">Blog</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+
+        <h1>Blog</h1>
+
+        <h2>Articles and Tutorials</h2>
+        <div class="blog-post">
+            <h3>Getting Started with Python Programming</h3>
+            <p>Python is a powerful programming language used in a variety of applications...</p>
+            <div class="tags">
+                <span>#Python</span> <span>#Programming</span> <span>#Tutorial</span>
+            </div>
+        </div>
+
+        <h2>Industry News and Updates</h2>
+        <div class="blog-post">
+            <h3>Latest in Technology: AI Advancements in 2024</h3>
+            <p>Artificial Intelligence is reshaping industries across the globe...</p>
+            <div class="tags">
+                <span>#AI</span> <span>#TechNews</span>
+            </div>
+        </div>
+
+        <h2>Success Stories and Testimonials</h2>
+        <div class="blog-post">
+            <h3>How John Became a Successful Python Developer</h3>
+            <p>John started with no knowledge of programming and now works for a top tech firm...</p>
+            <div class="tags">
+                <span>#SuccessStory</span> <span>#Testimonial</span>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h4>Comments</h4>
+            <div class="comment">
+                <p class="comment-author">Alice</p>
+                <p>This blog post is really helpful. Thanks for sharing!</p>
+            </div>
+
+            <div class="comment">
+                <p class="comment-author">Bob</p>
+                <p>Looking forward to more tutorials on Python.</p>
+            </div>
+
+            <!-- Comment Input -->
+            <div class="comment-input">
+                <h4>Leave a Comment</h4>
+                <textarea rows="4" placeholder="Type your comment here..."></textarea>
+                <button>Submit Comment</button>
+            </div>
+        </div>
+
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+</body>
+</html>

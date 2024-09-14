@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <style>
+        body { font-family: Arial, sans-serif;background-image: url(mov3.jpeg);background-repeat: no-repeat;background-size:cover; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .movie-details { margin-top: 20px; }
+        .movie-poster { max-width: 300px; }
+        input{
+          width: 250px;
+          height: 50px;
+          color: solid black;
+          font-size: 30px;
+        }
+        h1{
+          font-size: 35px;
+          text-align: center;
+        }
+        button{
+            background-color: rgb(25, 25, 182);
+            color: white;
+            width: 90px;
+            height: 30px;
+        }
+        label{
+            font-size: 40px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>welcome  <%= user.name %>!......</h1>
+    <marquee behavior="" direction=""><h1>Welcome to the moviz  page!_____ </h1></marquee>
+    <div class="container">
+        <h1>Search for a Movie</h1>
+        <form id="movieForm">
+            <label for="movie">Movie Name:</label>
+            <input type="text" id="movieName" name="movieName" placeholder="Enter movie name" required><br><br>
+            <button type="submit">Get Details</button>
+        </form>
+        <div id="movieDetails" class="movie-details"></div>
+    </div>
+    <a href="/logout">Logout</a>
+    <script>
+        document.getElementById('movieForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const movieName = document.getElementById('movieName').value;
+            fetch(`/movie?title=${encodeURIComponent(movieName)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const detailsDiv = document.getElementById('movieDetails');
+                    if (data.Response === "True") {
+                        detailsDiv.innerHTML = `
+                            <h2>${data.Title} (${data.Year})</h2>
+                            <img src="${data.Poster}" alt="${data.Title} Poster" class="movie-poster">
+                            <p><strong>Genre:</strong> ${data.Genre}</p>
+                            <p><strong>Director:</strong> ${data.Director}</p>
+                            <p><strong>Writer:</strong> ${data.Writer}</p>
+                            <p><strong>Plot:</strong> ${data.Plot}</p>
+                            <p><strong>IMDB Rating:</strong> ${data.imdbRating}</p>
+                            <p><strong>Released:</strong> ${data.Released}</p>
+                            <p><strong>Language:</strong> ${data.Language}</p>
+                            <p><strong>Country:</strong> ${data.Country}</p>
+                        `;
+                    } else {
+                        detailsDiv.innerHTML = `<p>Movie not found!</p>`;
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('movieDetails').innerHTML = `<p>Error fetching movie details</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

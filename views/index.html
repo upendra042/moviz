@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif;
+      background-color: rgb(153, 182, 160);
+    }
+    #chat-container {
+      width: 40%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+    }
+    #chat {
+      flex-grow: 1;
+      padding: 10px;
+      overflow-y: auto;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+    }
+    .message {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      width: fit-content;
+      max-width: 60%;
+    }
+    .sent {
+      background-color: #dcf8c6;
+      align-self: flex-end;
+      text-align: right;
+    }
+    .received {
+      background-color: #f7f7f7;
+      align-self: flex-start;
+      text-align: left;
+    }
+    #input-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center; /* Center contents horizontally */
+  align-items: center;
+  border-top: 1px solid #ccc;
+}
+
+#message-input {
+  width: 50%; /* Adjusted width to be centered better */
+  height: 30px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center; /* Center text inside the input */
+}
+
+#send-button {
+  height: 40px;
+  width: 70px;
+  background-color: rgb(26, 158, 190);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 10px; /* Add some space between input and button */
+}
+h2 {
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+  <h2>Live Chat</h2>
+  <div id="chat-container">
+    <div id="chat"></div>
+    <div id="input-container">
+      <input type="text" id="message-input" placeholder="Type your message here..." />
+      <button id="send-button">Send</button>
+    </div>
+  </div>
+
+  <script src="chat.js"></script>
+</body>
+</html>

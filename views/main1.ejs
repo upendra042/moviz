@@ -1,0 +1,117 @@
+<!-- main1.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Skill Sharing Platform</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .dashboard-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .profile-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .profile-container h2 {
+      margin-top: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    button:focus {
+      outline: none;
+    }
+    .skills-container, .bookings-container {
+      margin-top: 30px;
+    }
+    h3 {
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      background-color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <!-- Profile section -->
+    <div class="profile-container">
+      <h2>Welcome, <%= userName %></h2>
+      <p>Email: <%= userEmail %></p>
+      <p>Role: <%= userRole %></p>
+      <!-- Add more user details as needed -->
+    </div>
+
+    <!-- Navigation buttons -->
+    <nav>
+      <div class="button-container">
+        <button onclick="location.href='https://studchat.streamlit.app/'">Interactive Chatbot for Students</button>
+        <button onclick="location.href='https://app-realtimeai.streamlit.app/'">Learning Platform</button>
+      </div>
+    </nav>
+
+    <!-- Skills Listing -->
+    <div class="skills-container">
+      <h3>Your Listed Skills</h3>
+      <ul>
+        <% skills.forEach(function(skill) { %>
+          <li><%= skill.name %></li>
+        <% }); %>
+      </ul>
+    </div>
+
+    <!-- Bookings -->
+    <div class="bookings-container">
+      <h3>Your Upcoming Bookings</h3>
+      <ul>
+        <% bookings.forEach(function(booking) { %>
+          <li>Booking with <%= booking.tutorName %> on <%= booking.date %></li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

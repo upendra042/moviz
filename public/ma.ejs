@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Sharing Platform</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-image: url(boy.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            font-size: 35px; 
+            text-align: center;
+        }
+        /* Flexbox layout for Chatbot, Learning Platform, and Live Chat */
+        /* Styling for floating icons */
+.floating-icons {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.icon-container {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* Iframe box */
+.iframe-box {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px;
+    z-index: 1000;
+    border: 1px solid #ccc;
+}
+
+.hidden {
+    display: none;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#input-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#send-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+        /* Navigation */
+        .nav-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .nav-container a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .nav-container a:hover {
+            background-color: #1976D2;
+            border-radius: 5px;
+        }
+        .logout-link {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #1976D2;
+        }
+        .profile-container {
+            margin-bottom: 20px;
+        }
+
+        /* Live Chat Styles */
+        #chat-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+        }
+        #chat {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            width: fit-content;
+            max-width: 60%;
+        }
+        .sent {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            text-align: right;
+        }
+        .received {
+            background-color: #f7f7f7;
+            align-self: flex-start;
+            text-align: left;
+        }
+        #input-container {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid #ccc;
+        }
+        #message-input {
+            width: 50%;
+            height: 30px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #send-button {
+            height: 40px;
+            width: 70px;
+            background-color: rgb(26, 158, 190);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Menu -->
+        <div class="nav-container">
+            <a href="/user-portal">User Portal</a>
+            <a href="/tutor-dashboard">Tutor Dashboard</a>
+            <a href="/admin-panel">Admin Panel</a>
+            <a href="/landing-page">Landing Page</a>
+            <a href="/blog">Blog</a>
+        </div>
+        
+        <h1>Welcome, <%= user.name %>!</h1>
+
+        <!-- Profile Section -->
+        <div class="profile-container">
+            <h2>Your Profile</h2>
+            <p>Name: <%= user.name %></p>
+            <p>Email: <%= user.email %></p>
+            <p>Role: <%= user.role %></p>
+            <p>Phone: <%= user.phone %></p>
+            <p>Address: <%= user.address %></p>
+            <p>Bio: <%= user.bio %></p>
+            <p>Date of Birth: <%= user.dob %></p>
+        </div>
+        
+        <!-- Chatbot, Learning Platform, and Live Chat Section -->
+    
+            <div class="container">
+                <!-- Floating icons on the right -->
+                <div class="floating-icons">
+                    <!-- Interactive Chatbot Icon -->
+                    <div class="icon-container">
+                        <a href="#" onclick="toggleIframe('chatbot-iframe')">
+                            <img src="chatbot-icon.png" alt="Chatbot" title="Interactive Chatbot" class="icon">
+                        </a>
+                    </div>
+                    <!-- Learning Platform Icon -->
+                    <div class="icon-container">
+                        <a href="#" onclick="toggleIframe('learning-iframe')">
+                            <img src="learning-icon.png" alt="Learning Platform" title="Learning Platform" class="icon">
+                        </a>
+                    </div>
+                    <!-- Live Chat Icon -->
+                    <div class="icon-container">
+                        <a href="#" onclick="toggleIframe('live-chat-iframe')">
+                            <img src="chat-icon.png" alt="Live Chat" title="Live Chat" class="icon">
+                        </a>
+                    </div>
+                </div>
+        
+                <!-- Iframes for Chatbot, Learning Platform, and Live Chat -->
+                <div id="chatbot-iframe" class="iframe-box hidden">
+                    <h2>Interactive Chatbot for Students</h2>
+                    <iframe src="https://studchat.streamlit.app/?embed=true&embed_options=show_toolbar&embed_options=show_padding&embed_options=show_footer&embed_options=show_colored_line&embed_options=disable_scrolling" title="Interactive Chatbot"></iframe>
+                </div>
+        
+                <div id="learning-iframe" class="iframe-box hidden">
+                    <h2>Learning Platform</h2>
+                    <iframe src="https://app-realtimeai.streamlit.app/?embed=true&embed_options=show_toolbar&embed_options=show_padding&embed_options=show_footer&embed_options=show_colored_line&embed_options=disable_scrolling" title="Learning Platform"></iframe>
+                </div>
+        
+                <div id="live-chat-iframe" class="iframe-box hidden">
+                    <h2>Live Chat</h2>
+                    <div id="chat-container">
+                        <div id="chat"></div>
+                        <div id="input-container">
+                            <input type="text" id="message-input" placeholder="Type your message here..." />
+                            <button id="send-button">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- JavaScript for toggling iframes -->
+            <script>
+                function toggleIframe(iframeId) {
+                    const iframe = document.getElementById(iframeId);
+                    const isVisible = !iframe.classList.contains('hidden');
+                    document.querySelectorAll('.iframe-box').forEach(box => box.classList.add('hidden'));
+        
+                    if (!isVisible) {
+                        iframe.classList.remove('hidden');
+                    }
+                }
+            </script>
+
+        <!-- Logout -->
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+
+    <!-- Include Chat.js Script -->
+    <script src="chat.js"></script>
+</body>
+</html>

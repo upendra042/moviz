@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Portal - Skill Sharing Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: rgba(219, 209, 209, 0.5);
+            margin: 0;
+            padding: 0;
+            background-image: url(user.jpg);
+            background-size: cover;
+        }
+
+        .container { 
+            max-width: 1700px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: rgba(52, 51, 51, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #d6c5c5;
+        }
+        p {
+            color: #fff;
+        }
+        .logout {
+            background-color: #007bff;
+        }
+        .nav {
+            background-color: rgb(176, 180, 173);
+        }
+        .home {
+            background-color: #28a745;
+        }
+
+        .nav-container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-container a {
+            background-color: rgba(246, 240, 240, 0.5);
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-container a:hover {
+            background-color: #1976D2;
+            color: #fff;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #1976D2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #1976D2;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #155a8a;
+        }
+
+        .profile-container, .settings-container, .notifications-container, .community-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(134, 119, 119, 0.5);
+            border-radius: 8px;
+        }
+
+        .settings-container, .notifications-container {
+            border: 1px solid #ddd;
+        }
+
+        .settings-container h2, .notifications-container h2, .community-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .feature-box {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: rgba(157, 142, 142, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-box h3 {
+            margin: 0;
+        }
+
+        .notifications-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .notifications-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="nav-container">
+            <a href="/main" class="home">Home</a>
+            <a href="/user-portal" class="nav">User Portal</a>
+            <a href="/tutor-dashboard" class="nav">Tutor Dashboard</a>
+            <a href="/admin-panel" class="nav">Admin Panel</a>
+            <a href="/landing-page" class="nav">Landing Page</a>
+            <a href="/blog" class="nav">Blog</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    
+            <div class="container">
+                <h1>User Portal</h1>
+                
+                <!-- Features Section -->
+                <div class="section-container">
+                    <h2>Our Platform Features</h2>
+                    <div class="feature-box">
+                        <h3>Interactive Chatbot</h3>
+                        <p>Get instant answers to your questions with our AI-powered chatbot, available 24/7 to assist you with any queries or concerns.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>YouTube Video Generator</h3>
+                        <p>Create high-quality YouTube videos with our AI-powered video generator, perfect for tutorials, explanations, and more.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Code Generator</h3>
+                        <p>Generate code snippets and accelerate your development process with our code generator, supporting multiple programming languages.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Language Converter</h3>
+                        <p>Break language barriers with our instant translation tool, supporting over 100 languages and dialects.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Live Chat</h3>
+                        <p>Get real-time support and feedback from our team of experts, available to help you with any questions or issues.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Personalized Learning Paths</h3>
+                        <p>Discover your strengths and weaknesses with our AI-powered learning paths, tailored to your individual needs and goals.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Community Forum</h3>
+                        <p>Connect with other users, share knowledge, and learn from each other's experiences in our community forum.</p>
+                    </div>
+                </div>
+    
+                <!-- Profile Section -->
+                <div class="profile-container">
+                    <h2>My Profile</h2>
+                    <p>View and edit your profile information, including your name, email, and password.</p>
+                    <a href="/profile" class="cta-button">Edit Profile</a>
+                </div>
+    
+                <!-- Notifications Section -->
+                <div class="notifications-container">
+                    <h2>Notifications</h2>
+                    <p>View and manage your notifications, including updates, reminders, and alerts.</p>
+                    <a href="/notifications" class="cta-button">View Notifications</a>
+                </div>
+    
+                <a href="/logout" class="logout-link">Logout</a>
+            </div>
+        </div>
+</body>
+</html>

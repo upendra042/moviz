@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create an Account</title>
-
     <style>
         /* General Styles */
         body {
@@ -15,11 +13,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('mov5.jpeg'); /* Update with your image path */
+            background-image: url('class.jpg'); /* Update with your image path */
             background-repeat: no-repeat;
             background-size: cover;
         }
-        
+
         .container {
             background-color: rgba(90, 86, 86, 0.5);
             padding: 40px;
@@ -28,16 +26,19 @@
             width: 350px;
             text-align: center;
             transition: transform 0.2s ease-in-out;
+            height: 920px;
         }
-        
+
         .container:hover {
             transform: translateY(-10px);
         }
-        
+
         /* Form Elements */
         input[type="text"], 
         input[type="email"], 
-        input[type="password"] {
+        input[type="password"],
+        input[type="date"],
+        textarea {
             width: 100%;
             padding: 15px;
             margin: 10px 0;
@@ -46,15 +47,17 @@
             border-radius: 5px;
             transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        
+
         input[type="text"]:focus,
         input[type="email"]:focus,
-        input[type="password"]:focus {
+        input[type="password"]:focus,
+        input[type="date"]:focus,
+        textarea:focus {
             border-color: #ff7e5f;
             box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
             outline: none;
         }
-        
+
         button {
             padding: 15px 25px;
             background-color: #8f8684;
@@ -65,29 +68,29 @@
             font-size: 16px;
             transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
         }
-        
+
         button:hover {
             background-color: #feb47b;
             transform: translateY(-2px);
         }
-        
+
         button:active {
             background-color: #c9968a;
             transform: translateY(0);
         }
-        
+
         /* Links */
         a {
             color: #f5e3df;
             text-decoration: none;
             transition: color 0.2s ease-in-out;
         }
-        
+
         a:hover {
             text-decoration: underline;
             color: #babbc9;
         }
-        
+
         /* Headings */
         h1 {
             font-size: 2em;
@@ -96,21 +99,21 @@
             font-weight: 700;
             text-transform: uppercase;
         }
-        
+
         /* Additional Styles */
-        .container .form-description {
+        .form-description {
             font-size: 0.9em;
             color: #666;
             margin-bottom: 20px;
         }
-        
-        .container .form-error {
+
+        .form-error {
             color: #ff0000;
             margin-bottom: 20px;
             font-size: 0.9em;
         }
-        
-        .container .form-success {
+
+        .form-success {
             color: #28a745;
             margin-bottom: 20px;
             font-size: 0.9em;
@@ -120,57 +123,69 @@
 <body>
     <div class="container">
         <h1>Create an Account</h1>
+        <div id="error-message" class="form-error"></div>
         <form id="signup-form">
-          <input id="name-signup" type="text" placeholder="Name *" required><br><br>
-          <input id="email-signup" type="email" placeholder="Email *" required><br><br>
-          <input id="confirm-email-signup" type="email" placeholder="Confirm Email *" required><br><br>
-          <input id="password-signup" type="password" placeholder="Password *" required><br><br>
-          <input id="confirm-password-signup" type="password" placeholder="Confirm Password *" required><br><br>
-          <input type="checkbox" name="box" id="checkbox" required>I agree to the terms and conditions
-          <button type="submit">Create Account</button><br><br>
-          <a href="/login">Return to Login</a> <!-- Updated link to match Express route -->
+            <input id="name-signup" type="text" placeholder="Name *" required><br><br>
+            <input id="email-signup" type="email" placeholder="Email *" required><br><br>
+            <input id="confirm-email-signup" type="email" placeholder="Confirm Email *" required><br><br>
+            <input id="password-signup" type="password" placeholder="Password *" required><br><br>
+            <input id="confirm-password-signup" type="password" placeholder="Confirm Password *" required><br><br>
+            <input id="phone-signup" type="text" placeholder="Phone"><br><br>
+            <input id="address-signup" type="text" placeholder="Address"><br><br>
+            <textarea id="bio-signup" placeholder="Bio" rows="4"></textarea><br><br>
+            <input id="dob-signup" type="date" placeholder="Date of Birth"><br><br>
+            <input type="checkbox" name="box" id="checkbox" required>I agree to the terms and conditions
+            <button type="submit">Create Account</button><br><br>
+            <a href="/login">Return to Login</a> <!-- Updated link to match Express route -->
         </form>
-      </div>
-    
-      <script>
+    </div>
+
+    <script>
         document.getElementById('signup-form').addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const name = document.getElementById('name-signup').value;
-          const email = document.getElementById('email-signup').value;
-          const confirmEmail = document.getElementById('confirm-email-signup').value;
-          const password = document.getElementById('password-signup').value;
-          const confirmPassword = document.getElementById('confirm-password-signup').value;
-    
-          if (email !== confirmEmail) {
-            alert('Emails do not match');
-            return;
-          }
-    
-          if (password !== confirmPassword) {
-            alert('Passwords do not match');
-            return;
-          }
-    
-          try {
-            const response = await fetch('/signup', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ name, email, password })
-            });
-    
-            if (response.ok) {
-              window.location.href = '/main'; // Update to match your actual main route
-            } else {
-              const errorText = await response.text();
-              alert(`Error: ${errorText}`);
+            e.preventDefault();
+            const name = document.getElementById('name-signup').value;
+            const email = document.getElementById('email-signup').value;
+            const confirmEmail = document.getElementById('confirm-email-signup').value;
+            const password = document.getElementById('password-signup').value;
+            const confirmPassword = document.getElementById('confirm-password-signup').value;
+            const phone = document.getElementById('phone-signup').value;
+            const address = document.getElementById('address-signup').value;
+            const bio = document.getElementById('bio-signup').value;
+            const dob = document.getElementById('dob-signup').value;
+            const errorMessage = document.getElementById('error-message');
+
+            errorMessage.textContent = '';
+            
+            if (email !== confirmEmail) {
+                errorMessage.textContent = 'Emails do not match';
+                return;
             }
-          } catch (error) {
-            console.error('Error occurred:', error);
-            alert('An error occurred. Please try again later.');
-          }
+    
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Passwords do not match';
+                return;
+            }
+    
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password, phone, address, bio, dob })
+                });
+    
+                if (response.ok) {
+                    window.location.href = '/main'; // Update to match your actual main route
+                } else {
+                    const errorText = await response.text();
+                    errorMessage.textContent = `Error: ${errorText}`;
+                }
+            } catch (error) {
+                console.error('Error occurred:', error);
+                errorMessage.textContent = 'An error occurred. Please try again later.';
+            }
         });
-      </script>
+    </script>
 </body>
 </html>

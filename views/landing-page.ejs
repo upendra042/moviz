@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page - Skill Sharing Platform</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url(boy.jpg);
+            background-size: cover;
+           
+        }
+
+        .container { 
+            max-width: 1700px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: rgba(90, 86, 86, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: #f8f1f1;
+        }
+        .logout {
+            background-color: #007bff;
+        }
+        .nav {
+            background-color: rgb(176, 180, 173);
+        }
+        .home {
+            background-color: #28a745;
+        }
+
+        .nav-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-container a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-container a:hover {
+            background-color: #1976D2;
+            color: #fff;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #28a745;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
+        .secondary-cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .secondary-cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .hero-section {
+            background-image: url('/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
+            color: rgb(91, 84, 84);
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .features-section, .testimonials-section {
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            background-color: rgba(53, 49, 49, 0.5);
+            border-radius: 8px;
+        }
+
+        .features-section h2, .testimonials-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .feature-box {
+            display: inline-block;
+            width: 30%;
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(193, 171, 171, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            vertical-align: top;
+        }
+
+        .feature-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .testimonials-section {
+            text-align: left;
+        }
+
+        .testimonial {
+            background-color: rgba(186, 167, 167, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: aliceblue;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial h3 {
+            margin-bottom: 10px;
+        }
+        
+        .logout-link {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+        <!-- Navigation Links -->
+        <div class="nav-container">
+            <a href="/main" class="home">Home</a>
+            <a href="/user-portal" class="nav">User Portal</a>
+            <a href="/tutor-dashboard" class="nav">Tutor Dashboard</a>
+            <a href="/admin-panel" class="nav">Admin Panel</a>
+            <a href="/landing-page" class="nav">Landing Page</a>
+            <a href="/blog" class="nav">Blog</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>Welcome to Skill Sharing Platform</h1>
+            <p style="color: #f8f1f1;">Learn new skills, share your expertise, and grow with our community.</p>
+            <a href="/main" class="cta-button">Get Started</a>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2>What We Offer</h2>
+
+            <div class="feature-box">
+                <h3>Interactive Chatbot</h3>
+                <p>Get instant answers to your questions with our AI-powered chatbot. No more waiting for responses!</p>
+                <iframe src="https://studchat.streamlit.app/?embed=true&embed_options=show_toolbar&embed_options=show_padding&embed_options=show_footer&embed_options=show_colored_line&embed_options=disable_scrolling" title="Interactive Chatbot" ></iframe>
+            </div>
+
+            <div class="feature-box">
+                <h3>YouTube Video Generator</h3>
+                <p>Create high-quality YouTube videos with our AI-powered video generator. No more tedious editing!</p>
+                <iframe src="https://video-generator.com" title="YouTube Video Generator"></iframe>
+            </div>
+
+            <div class="feature-box">
+                <h3>Code Generator</h3>
+                <p>Generate code snippets and accelerate your development process with our code generator.</p>
+                <iframe src="https://code-generator.com" title="Code Generator"></iframe>
+            </div>
+
+            <div class="feature-box">
+                <h3>Language Converter</h3>
+                <p>Break language barriers with our instant translation tool. you can convert one programming language to another language here!</p>
+                <iframe src="https://language-converter.com" title="Language Converter"></iframe>
+            </div>
+
+            <div class="feature-box">
+                <h3>Live Chat</h3>
+                <p>Get real-time support and feedback from our team of experts. We're always here to help!</p>
+                <iframe src="https://live-chat.com" title="Live Chat"></iframe>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials-section">
+            <h2>What Our Users Are Saying</h2>
+
+            <div class="testimonial">
+                <h3>chotu</h3>
+                <p>"This platform has transformed the way I learn. The tutors are fantastic and the flexibility is unmatched!"</p>
+            </div>
+
+            <div class="testimonial">
+                <h3>ramu</h3>
+                <p>"I was able to enhance my career by learning new skills. I highly recommend it to anyone looking to grow."</p>
+            </div>
+        </div>
+
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+</body>
+</html>
